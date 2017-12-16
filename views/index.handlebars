@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-1"></div>
+    <!--left column for sushi that hasnt been devoured-->
+    <div class="col-md-5">
+        <div id="sushiToEat">
+            <ul class='list-group' style="list-style-type:none">
+                {{#each sushi}} {{#unless this.devoured}}
+                <li class='list-group-item'>
+                    <p>
+                        {{this.sushi_name}}
+
+                        <form action='/{{this.id}}?_method=PUT' method='POST'>
+                            <input type='hidden' name='devoured' value='true'>
+
+                            <button class="btn btn-default" type="submit">Devour!</button>
+
+                        </form>
+                    </p>
+                </li>
+                {{/unless}} {{/each}}
+            </ul>
+        </div>
+    </div>
+    <!--right column for sushi that has been devoured-->
+    <div class="col-md-5">
+        <div class="devouredSushi">
+            <ul='list-group' style="list-style-type:none">
+                {{#each sushi}} {{#if this.devoured}}
+                <li class='list-group-item'>
+                    <p>{{this.sushi_name}}</p>
+                </li>
+                {{/if}} {{/each}}
+                </ul>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<!--new row for the submit new sushi input/button-->
+<div class="row">
+    <div class="col-md-3"></div>
+    <center>
+        <div class="col-md-6">
+            <form method='POST' action='/create'>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter Sushi..." name='sushi'>
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Order New Sushi Roll!</button>
+            </form>
+        </div>
+    </center>
+    <div class="col-md-3"></div>
+</div>
