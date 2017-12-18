@@ -1,8 +1,5 @@
-DROP DATABASE IF EXISTS sushi_db;
 
-CREATE DATABASE sushi_db;
-
-USE sushi_db;
+USE xh7az4zdcwb950sw;
 
 CREATE TABLE sushi(
     id INT AUTO_INCREMENT NOT NULL, 
